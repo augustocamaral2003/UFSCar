@@ -1,0 +1,435 @@
+
+1------------------------------
+#include <stdio.h>
+
+int main(void) {
+    printf("Hello World!!!\n");
+    return 0;
+}
+
+2------------------------------
+#include <stdio.h>
+
+int main(void) {
+    int n;
+
+    printf("Por favor, digite um número: ");
+    scanf("%d", &n);
+    printf("O número informado foi: %d\n", n);
+    
+    return 0;
+}
+
+3------------------------------
+#include <stdio.h>
+
+int main(void) {
+    int a, b;
+    
+    printf("Por favor, insira o primeiro número: ");
+    scanf("%d", &a);
+    printf("Por favor, insira o segundo número: ");
+    scanf("%d", &b);
+
+    printf("A soma é: %d\n", a+b);
+    
+    return 0;
+}
+
+4------------------------------
+#include <stdio.h>
+
+int main(void) {
+    int a, b, c, d;
+
+    printf("Por favor, entre com a nota do primeiro bimestre: ");
+    scanf("%d", &a);
+    printf("Por favor, entre com a nota do segundo bimestre: ");
+    scanf("%d", &b);
+    printf("Por favor, entre com a nota do terceiro bimestre: ");
+    scanf("%d", &c);
+    printf("Por favor, entre com a nota do quarto bimestre: ");
+    scanf("%d", &d);
+
+    printf("A média é: %.1f\n", (a+b+c+d)/4.0);
+    return 0;
+}
+
+5------------------------------
+#include <stdio.h>
+
+int main(void) {
+    float f, c;
+
+    printf("Por favor, entre com a temperatura em graus Fahrenheit: ");
+    scanf("%f", &f);
+
+    c = (f - 32)*5/9;
+
+    printf("A temperatura é %.1f°C\n", c);
+    return 0;
+}
+
+6------------------------------
+#include <stdio.h>
+
+int main(void) {
+    float m;
+
+    printf("Por favor, entre com a distância em metros: ");
+    scanf("%f", &m);
+
+    printf("A distância em centímetros é: %.2f\n", m*100);
+    return 0;
+}
+
+7------------------------------
+#include <stdio.h>
+#define PI 3.1415
+
+int main(void) {
+    float r, a;
+
+    printf("Por favor, entre com o raio: ");
+    scanf("%f", &r);
+
+    a = PI*r*r;
+
+    printf("A área é: %.3f\n", a);
+    return 0;
+}
+
+8------------------------------
+#include <stdio.h>
+
+int main(void) {
+    int l;
+
+    printf("Por favor, entre com o lado do quadrado: ");
+    scanf("%d", &l);
+
+    printf("O dobro da área do quadrado é: %d\n", 2*l*l);
+    return 0;
+}
+
+9------------------------------
+#include <stdio.h>
+
+int main(void) {
+    float s, t;
+
+    printf("Por favor, entre com a distância em Km: ");
+    scanf("%f", &s);
+    printf("Por favor, entre com o tempo em minutos: ");
+    scanf("%f", &t);
+
+    printf("A velocidade, em m/s, é: %.3f\n", (s*1000)/(t*60));
+    return 0;
+}
+
+
+10------------------------------
+#include <stdio.h>
+#define PI 3.1415
+
+int main(void) {
+    int opcao, altura, raio, lado1, lado2;
+    float volume;
+
+    printf("[1] cilindro\t[2] paralelepípedo\nPor favor, entre com o tipo de sólido: ");
+    scanf("%d", &opcao);
+
+    if(opcao == 1) {
+        printf("Por favor, entre com o raio: ");
+        scanf("%d", &raio);
+        printf("Por favor, entre com a altura: ");
+        scanf("%d", &altura);
+
+        volume = PI*raio*raio*altura;
+    } else if(opcao == 2) {
+        printf("Por favor, entre com o comprimento: ");
+        scanf("%d", &lado1);
+        printf("Por favor, entre com a profundidade: ");
+        scanf("%d", &lado2);
+        printf("Por favor, entre com a altura: ");
+        scanf("%d", &altura);
+
+        volume = lado1*lado2*altura;
+    }
+
+    printf("O volume é: %.3f\n", volume);
+    return 0;
+}
+
+11------------------------------
+#include <stdio.h>
+
+int main(void) {
+    int n, r = 1;
+
+    printf("Por favor, entre com o número: ");
+    scanf("%d", &n);
+    
+    do {
+        r *= n;
+    } while(--n);
+
+    printf("O fatorial de é: %d\n", r);
+    return 0;
+}
+
+12------------------------------
+#include <stdio.h>
+
+int main(void) {
+    int h, s;
+
+    printf("Por favor, entre com o seu salário por hora: ");
+    scanf("%d", &s);
+    printf("Por favor, entre com o número de horas trabalhadas por mês: ");
+    scanf("%d", &h);
+
+    printf("O salário total é: %d\n", s*h);
+    return 0;
+}
+
+13------------------------------
+#include <stdio.h>
+
+int main(void) {
+    float input, s;
+    int h, m;
+
+    printf("Por favor, entre com o tempo em minutos: ");
+    scanf("%f", &input);
+
+    h = input/60;
+    m = (int)input%60;
+    s = 60*(input - (int)input);
+
+    printf("O tempo formatado é: %dh %dmin %.1fs", h, m, s);
+    return 0;
+}
+
+14------------------------------
+#include <stdio.h>
+
+int main(void) {
+    int hentrada, mentrada, hsaida, msaida, hdiarias, mdiarios;
+    char nome[60];
+
+    printf("Por favor, entre com o nome do funcionário: ");
+    scanf("%s", nome);
+    printf("Por favor, entre com o horário de entrada (no formato HH MM): ");
+    scanf("%d %d", &hentrada, &mentrada);
+    printf("Por favor, entre com o horário de saída (no formato HH MM): ");
+    scanf(" %d %d", &hsaida, &msaida);
+
+    if(msaida < mentrada) {
+        hsaida--;
+        msaida += 60;
+    }
+
+    if(hsaida < hentrada) {
+        hdiarias = 24 - hentrada + hsaida;
+        mdiarios = msaida - mentrada;
+    } else {
+        hdiarias = msaida - mentrada;
+        mdiarios = msaida - mentrada;
+    }
+
+    
+    if(hdiarias < 4) {
+        printf("\nO funcionário %s trabalhou %02d:%02d, pertence ao perfil A e receberá R$%d\n", nome, hdiarias, mdiarios, hdiarias*30);
+    } else if(hdiarias > 4 || hdiarias <= 8) {
+        printf("\nO funcionário %s trabalhou %02d:%02d, pertence ao perfil B e receberá R$%d\n", nome, hdiarias, mdiarios, hdiarias*70);
+    } else if(hdiarias > 8) {
+        printf("\nO funcionário %s trabalhou %02d:%02d, pertence ao perfil C e receberá R$%d\n", nome, hdiarias, mdiarios, hdiarias*90);
+    }
+
+    return 0;
+}
+
+15------------------------------
+Resposta: Alternativa E
+
+16------------------------------
+#include <stdio.h>
+#include <math.h>
+
+int main(void) {
+    int n, l, soma = 0, ncopy;
+
+    printf("Por favor, entre com o comprimento do número: ");
+    scanf("%d", &l);
+    printf("Por favor, entre com o número: ");
+    scanf("%d", &n);
+
+    ncopy = n;
+
+    for(int i = 0; i < l; i++) {
+        soma += pow(ncopy%10, l);
+        ncopy /= 10;
+    }
+
+    if(soma == n) {
+        printf("O número é um número de Armstrong\n");
+    } else {
+        printf("O número não é um número de Armstrong\n");
+    }
+
+    return 0;
+}
+
+17------------------------------
+#include <stdio.h>
+
+int main(void) {
+    int n1 = 5, n2 = 3;
+
+    if(n1 > n2 && 2 < n1 && 5 > n2 || 12 + n2 > 10 + n1 && n2 != 2 || !(n2 > 2)) printf("A primeira afirmação é verdadeira\n");
+    else printf("A primeira condição é falsa\n");
+    if(n1 > n2 && 3 == n1 && 5 < n2 || 100 + n2 > 101 + n1 || n2 == 3 && n1 < 4) printf("A segunda condicao é verdadeira\n");
+    else printf("A segunda condição é falsa\n");
+
+    return 0;
+}
+
+18------------------------------
+#include <stdio.h>
+#define PI 3.1415
+
+int main(void) {
+    int r, v = 1;
+
+    while(v) {
+        printf("Por favor, entre com o valor do raio: ");
+        scanf("%d", &r);
+
+        printf("O raio é: %.3f\n", PI*r*r);
+
+        printf("Deseja continuar? [1] sim [0] não: ");
+        scanf("%d", &v);
+    }
+
+    return 0;
+}
+
+19------------------------------
+#include <stdio.h>
+
+int main(void) {
+    int n, m = 999999999;
+
+    printf("Por favor, entre com um valor: ");
+
+    while(scanf("%d", &n) != 0) {
+        m = n<m?n:m;
+        printf("Por favor, entre com um valor: ");
+    }
+
+    printf("O valor mínimo inserido foi: %d\n", m);
+
+    return 0;
+}
+
+20------------------------------
+#include <stdio.h>
+
+int main(void) {
+    float h, p;
+
+    printf("Por favor, entre com a altura em metros: ");
+    scanf("%f", &h);
+
+    p = (72.7 * h) - 58;
+    printf("O peso ideal é %.2fKg", p);
+
+    return 0;
+}
+
+21------------------------------
+#include <stdio.h>
+
+int main(void) {
+    int p, e, m;
+
+    printf("Por favor, entre com o peso: ");
+    scanf("%d", &p);
+
+    e = p>50?p-50:0;
+    m = e*4;
+
+    if(m == 0) {
+        printf("Excesso: ZERO\nMulta: ZERO\n");
+    } else {
+        printf("Excesso: %dKg\nMulta: R$ %d\n", e, m);
+    }
+
+    return 0;
+}
+
+22------------------------------
+#include <stdio.h>
+#include <math.h>
+
+int main(void) {
+    float m, l, g, p;
+
+    printf("Por favor, entre com a área a ser pintada: ");
+    scanf("%f", &m);
+
+    l = m/3;
+    g = l<18?1:ceil(l/18);
+    p = g*80;
+
+    printf("Número de latas: %.0f\nPreço total: %.0f\n", g, p);
+    
+    return 0;
+}
+
+23------------------------------
+#include <stdio.h>
+#include <math.h>
+
+int main(void) {
+    float m, l, g1, g2, p;
+
+    printf("Por favor, entre com a área a ser pintada: ");
+    scanf("%f", &m);
+
+    l = m/6;
+    g1 = l<18?1:ceil(l/18);
+    p = g1*80;
+
+    printf("1. Número de latas de 18 litros: %.0f\n   Preço total: %.1f\n", g1, p);
+
+    g1 = l<3.6?1:ceil(l/3.6);
+    p = g1*25;
+
+    printf("2. Número de latas de 3,6 litros: %.0f\n   Preço total: %.1f\n", g1, p);
+
+    l += l*0.1;
+
+
+
+    printf("3. Número de latas de 18 litros: %.0f\n   Número de latas de 3.6 litros: %.0f\n    Preço total: %.1f\n", g1, g2, g1*80 + g2*25);
+
+    return 0;
+}
+
+24------------------------------
+#include <stdio.h>
+
+int main(void) {
+    int s, v;
+
+    printf("Por favor, entre com o tamanho do arquivo em MB: ");
+    scanf("%d", &s);
+    printf("Pot favor, entre com a velocidade em Mbps: ");
+    scanf("%d", &v);
+
+    printf("O tempo aproximado de download é %.f minutos", (s/(v/8))/60.0);
+
+    return 0;
+}
